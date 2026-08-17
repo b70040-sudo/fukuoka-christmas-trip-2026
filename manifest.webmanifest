@@ -1,0 +1,9 @@
+{
+  "name": "福岡・博多聖誕市集之旅",
+  "short_name": "福岡聖誕旅",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f3fb",
+  "theme_color": "#6f3cc3",
+  "icons": []
+}
