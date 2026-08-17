@@ -1,0 +1,32 @@
+{
+  "title": "福岡・博多聖誕市集之旅",
+  "subtitle": "4天3夜",
+  "dateRange": "2026/12/15（二）－ 12/18（五）",
+  "destination": "福岡",
+  "departure": "高雄",
+  "countdown": 68,
+  "quote": "聖誕的溫暖，藏在漫漫福岡散步的路上。",
+  "flight": {
+    "outbound": {
+      "route": "高雄 → 福岡",
+      "number": "IT270",
+      "date": "2026/12/15",
+      "time": "15:30",
+      "note": "請依實際機票更新"
+    },
+    "return": {
+      "route": "福岡 → 高雄",
+      "number": "IT271",
+      "date": "2026/12/18",
+      "time": "待確認",
+      "note": "請依實際機票更新"
+    }
+  },
+  "hotel": {
+    "name": "西鐵飯店 Croom 博多",
+    "area": "祇園櫛田神社前／博多",
+    "checkin": "2026/12/15",
+    "checkout": "2026/12/18",
+    "note": "請替換成實際訂房資訊"
+  }
+}

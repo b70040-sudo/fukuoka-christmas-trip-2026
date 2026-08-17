@@ -1,0 +1,121 @@
+[
+  {
+    "day": 1,
+    "date": "12/15（二）",
+    "title": "抵達福岡・博多聖誕夜",
+    "items": [
+      {
+        "time": "15:30",
+        "type": "✈️",
+        "name": "高雄小港機場出發",
+        "detail": "IT270｜前往福岡",
+        "map": "https://maps.google.com/?q=Kaohsiung+International+Airport"
+      },
+      {
+        "time": "19:00",
+        "type": "🚆",
+        "name": "抵達福岡機場",
+        "detail": "入境、領取行李、前往博多",
+        "map": "https://maps.google.com/?q=Fukuoka+Airport"
+      },
+      {
+        "time": "19:40",
+        "type": "🏨",
+        "name": "飯店 Check-in",
+        "detail": "西鐵飯店 Croom 博多",
+        "map": "https://maps.google.com/?q=Nishitetsu+Hotel+Croom+Hakata"
+      },
+      {
+        "time": "20:30",
+        "type": "🎄",
+        "name": "博多聖誕市集",
+        "detail": "晚餐、燈飾、拍照",
+        "map": "https://maps.google.com/?q=Hakata+Station"
+      }
+    ]
+  },
+  {
+    "day": 2,
+    "date": "12/16（三）",
+    "title": "太宰府・竈門神社・運河城",
+    "items": [
+      {
+        "time": "09:00",
+        "type": "⛩️",
+        "name": "太宰府天滿宮",
+        "detail": "參拜、表參道散步",
+        "map": "https://maps.google.com/?q=Dazaifu+Tenmangu"
+      },
+      {
+        "time": "12:00",
+        "type": "⛩️",
+        "name": "竈門神社",
+        "detail": "紅葉、祈願、拍照",
+        "map": "https://maps.google.com/?q=Kamado+Shrine+Dazaifu"
+      },
+      {
+        "time": "16:30",
+        "type": "🛍️",
+        "name": "博多運河城",
+        "detail": "購物、晚餐、燈光活動",
+        "map": "https://maps.google.com/?q=Canal+City+Hakata"
+      }
+    ]
+  },
+  {
+    "day": 3,
+    "date": "12/17（四）",
+    "title": "福岡市區・天神・福岡塔",
+    "items": [
+      {
+        "time": "09:30",
+        "type": "🍁",
+        "name": "紅葉八幡宮",
+        "detail": "市區神社散步",
+        "map": "https://maps.google.com/?q=Momijihachimangu+Shrine"
+      },
+      {
+        "time": "12:00",
+        "type": "🛍️",
+        "name": "天神商圈",
+        "detail": "午餐、百貨、地下街",
+        "map": "https://maps.google.com/?q=Tenjin+Fukuoka"
+      },
+      {
+        "time": "17:00",
+        "type": "🗼",
+        "name": "福岡塔",
+        "detail": "夕陽、夜景",
+        "map": "https://maps.google.com/?q=Fukuoka+Tower"
+      }
+    ]
+  },
+  {
+    "day": 4,
+    "date": "12/18（五）",
+    "title": "櫛田神社・LaLaport・返程",
+    "items": [
+      {
+        "time": "09:00",
+        "type": "⛩️",
+        "name": "櫛田神社",
+        "detail": "博多總鎮守",
+        "map": "https://maps.google.com/?q=Kushida+Shrine+Fukuoka"
+      },
+      {
+        "time": "11:30",
+        "type": "🤖",
+        "name": "LaLaport 福岡",
+        "detail": "鋼彈、午餐、購物",
+        "map": "https://maps.google.com/?q=Mitsui+Shopping+Park+LaLaport+Fukuoka"
+      },
+      {
+        "time": "16:30",
+        "type": "✈️",
+        "name": "前往福岡機場",
+        "detail": "依實際航班時間調整",
+        "map": "https://maps.google.com/?q=Fukuoka+Airport"
+      }
+    ]
+  }
+]
