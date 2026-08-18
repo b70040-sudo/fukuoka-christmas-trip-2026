@@ -1,9 +1,16 @@
 {
-  "name": "福岡・博多聖誕市集之旅",
+  "name": "2026 福岡聖誕叮叮噹",
   "short_name": "福岡聖誕旅",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f6f3fb",
-  "theme_color": "#6f3cc3",
-  "icons": []
+  "background_color": "#f7f4fb",
+  "theme_color": "#7c1d35",
+  "icons": [
+    {
+      "src": "./assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
