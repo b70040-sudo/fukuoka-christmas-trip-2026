@@ -22,13 +22,13 @@ const trip = {
     checkin:"15:00 起",
     checkout:"12/18 10:50",
     note:"大廳在二樓；櫛田神社前站步行約2分鐘，5號出口有扶梯。",
-    image:"./assets/hotel.jpg"
+    image:"./hotel.jpg?v=4"
   }
 };
 
 const days = [
   {
-    day:1,date:"12/15（二）",title:"機場 → 飯店 → 博多聖誕市集",meet:"起床時間：09:00",image:"./assets/day1-market.jpg",
+    day:1,date:"12/15（二）",title:"機場 → 飯店 → 博多聖誕市集",meet:"起床時間：09:00",image:"./day1-market.jpg?v=4",
     items:[
       {time:"出發前",icon:"🧳",name:"準備出發",detail:"往小港車程約 1 小時；可在車上完成線上報到。記得錢包、信用卡與行程表。"},
       {time:"15:25",icon:"✈️",name:"虎航 IT270",detail:"高雄小港機場 → 福岡機場，預計 18:55 抵達。",map:"高雄國際機場"},
@@ -39,7 +39,7 @@ const days = [
     ]
   },
   {
-    day:2,date:"12/16（三）",title:"太宰府天滿宮 → 竈門神社 → 博多運河城",meet:"集合時間：08:30～08:40",image:"./assets/day2-shrine.jpg",
+    day:2,date:"12/16（三）",title:"太宰府天滿宮 → 竈門神社 → 博多運河城",meet:"集合時間：08:30～08:40",image:"./day2-shrine.jpg?v=4",
     items:[
       {time:"09:00–21:00",icon:"🍙",name:"Omusubi Yamaya 博多MING店",detail:"JR博多站內 MING 1樓；地址：博多区博多駅中央街1-1。",map:"Omusubi Yamaya 博多MING店"},
       {time:"09:42",icon:"🚆",name:"前往太宰府",detail:"博多站搭地鐵至天神站，步行到西鐵天神站；平日 09:42 有直達太宰府列車。出發前確認「旅人列車」運行日曆。",map:"西鉄福岡（天神）駅"},
@@ -51,7 +51,7 @@ const days = [
     ]
   },
   {
-    day:3,date:"12/17（四）",title:"紅葉八幡宮 → 天神商圈 → 福岡塔",meet:"集合時間：09:30",image:"./assets/day3-tower.jpg",
+    day:3,date:"12/17（四）",title:"紅葉八幡宮 → 天神商圈 → 福岡塔",meet:"集合時間：09:30",image:"./day3-tower.jpg?v=4",
     items:[
       {time:"10:00–19:00",icon:"🥐",name:"FULL FULL",detail:"早餐／麵包，原行程記載步行約3分鐘。",map:"The Full Full Hakata"},
       {time:"上午",icon:"⛩️",name:"紅葉八幡宮",detail:"從祇園方向前往，原行程：走路約10分 → 地鐵機場線 → 藤崎 → 步行約11分。",map:"紅葉八幡宮"},
@@ -62,7 +62,7 @@ const days = [
     ]
   },
   {
-    day:4,date:"12/18（五）",title:"櫛田／住吉神社 → LaLaport → 回家",meet:"回程班機：19:55",image:"./assets/day4-lalaport.jpg",
+    day:4,date:"12/18（五）",title:"櫛田／住吉神社 → LaLaport → 回家",meet:"回程班機：19:55",image:"./day4-lalaport.jpg?v=4",
     items:[
       {time:"08:00 起",icon:"☕",name:"Bread, Espresso & Hakata &&",detail:"早餐，原行程記載步行約5分鐘。",map:"パンとエスプレッソと博多っと"},
       {time:"09:00 起",icon:"⛩️",name:"櫛田神社散步",detail:"原行程記載從飯店步行約8分鐘。",map:"櫛田神社"},
@@ -123,7 +123,7 @@ function render(){
 }
 function homeView(){
   return `
-    <section class="hero hero-photo" style="background-image:linear-gradient(135deg,rgba(45,12,30,.78),rgba(56,38,122,.64)),url('./assets/hero-fukuoka.jpg')">
+    <section class="hero hero-photo" style="background-image:linear-gradient(135deg,rgba(45,12,30,.78),rgba(56,38,122,.64)),url('./hero-fukuoka.jpg?v=4')">
       <div class="eyebrow">🎄 ${trip.subtitle}</div>
       <h1>${trip.title}</h1>
       <p>${trip.dateRange}</p>
@@ -231,7 +231,7 @@ function openModal(type){
     <div class="expense"><small>日幣現金</small><strong>¥70,000</strong></div>
     <div class="expense"><small>玉山帳戶</small><strong>¥90,000</strong></div>
   </div><div class="notice">旅平險、不便險、eSIM、機場接送金額在原行程表中尚未填寫。</div>`;
-  if(type==="visuals") html=`<h2>🖼️ 旅行視覺</h2><img class="poster-img" src="./assets/travel-poster.png" alt="福岡旅行海報"><div class="notice">此視覺依照你提供的 2026 福岡聖誕叮叮噹行程內容生成，已內建在 APP 中。</div>`;
+  if(type==="visuals") html=`<h2>🖼️ 旅行視覺</h2><img class="poster-img" src="./travel-poster.png?v=4" alt="福岡旅行海報"><div class="notice">此視覺依照你提供的 2026 福岡聖誕叮叮噹行程內容生成，已內建在 APP 中。</div>`;
   if(type==="food") html=`<h2>🍜 福岡必吃候選</h2><div class="detail-list">
     ${["拉麵競技場","那かむら","爐端燒（たみじ屋、三光橋）","釜揚 牧のうんど","天麩羅処ひらお","Shake Shack 漢堡","Shin Shin 拉麵","屋台","The Full Full Hakata","MUEN COFFEE"].map(x=>`<div class="detail-row">${x}</div>`).join("")}
   </div>`;
