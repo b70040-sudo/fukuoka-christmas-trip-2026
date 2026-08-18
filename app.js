@@ -62,7 +62,7 @@ const days = [
     ]
   },
   {
-    day:4,date:"12/18（五）",title:"櫛田／住吉神社 → LaLaport → 回家",meet:"回程班機：19:55",image:"./day4-landmark.jpg?v=5",
+    day:4,date:"12/18（五）",title:"櫛田／住吉神社 → LaLaport → 回家",meet:"回程班機：19:55",image:"./day4-landmark.jpg?v=7",
     items:[
       {time:"08:00 起",icon:"☕",name:"Bread, Espresso & Hakata &&",detail:"早餐，原行程記載步行約5分鐘。",map:"パンとエスプレッソと博多っと"},
       {time:"09:00 起",icon:"⛩️",name:"櫛田神社散步",detail:"原行程記載從飯店步行約8分鐘。",map:"櫛田神社"},
