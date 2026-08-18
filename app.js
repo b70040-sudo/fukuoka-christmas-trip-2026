@@ -21,13 +21,14 @@ const trip = {
     room:"雙床房－附榻榻米區",
     checkin:"15:00 起",
     checkout:"12/18 10:50",
-    note:"大廳在二樓；櫛田神社前站步行約2分鐘，5號出口有扶梯。"
+    note:"大廳在二樓；櫛田神社前站步行約2分鐘，5號出口有扶梯。",
+    image:"./assets/hotel.jpg"
   }
 };
 
 const days = [
   {
-    day:1,date:"12/15（二）",title:"機場 → 飯店 → 博多聖誕市集",meet:"起床時間：09:00",
+    day:1,date:"12/15（二）",title:"機場 → 飯店 → 博多聖誕市集",meet:"起床時間：09:00",image:"./assets/day1-market.jpg",
     items:[
       {time:"出發前",icon:"🧳",name:"準備出發",detail:"往小港車程約 1 小時；可在車上完成線上報到。記得錢包、信用卡與行程表。"},
       {time:"15:25",icon:"✈️",name:"虎航 IT270",detail:"高雄小港機場 → 福岡機場，預計 18:55 抵達。",map:"高雄國際機場"},
@@ -38,7 +39,7 @@ const days = [
     ]
   },
   {
-    day:2,date:"12/16（三）",title:"太宰府天滿宮 → 竈門神社 → 博多運河城",meet:"集合時間：08:30～08:40",
+    day:2,date:"12/16（三）",title:"太宰府天滿宮 → 竈門神社 → 博多運河城",meet:"集合時間：08:30～08:40",image:"./assets/day2-shrine.jpg",
     items:[
       {time:"09:00–21:00",icon:"🍙",name:"Omusubi Yamaya 博多MING店",detail:"JR博多站內 MING 1樓；地址：博多区博多駅中央街1-1。",map:"Omusubi Yamaya 博多MING店"},
       {time:"09:42",icon:"🚆",name:"前往太宰府",detail:"博多站搭地鐵至天神站，步行到西鐵天神站；平日 09:42 有直達太宰府列車。出發前確認「旅人列車」運行日曆。",map:"西鉄福岡（天神）駅"},
@@ -50,7 +51,7 @@ const days = [
     ]
   },
   {
-    day:3,date:"12/17（四）",title:"紅葉八幡宮 → 天神商圈 → 福岡塔",meet:"集合時間：09:30",
+    day:3,date:"12/17（四）",title:"紅葉八幡宮 → 天神商圈 → 福岡塔",meet:"集合時間：09:30",image:"./assets/day3-tower.jpg",
     items:[
       {time:"10:00–19:00",icon:"🥐",name:"FULL FULL",detail:"早餐／麵包，原行程記載步行約3分鐘。",map:"The Full Full Hakata"},
       {time:"上午",icon:"⛩️",name:"紅葉八幡宮",detail:"從祇園方向前往，原行程：走路約10分 → 地鐵機場線 → 藤崎 → 步行約11分。",map:"紅葉八幡宮"},
@@ -61,7 +62,7 @@ const days = [
     ]
   },
   {
-    day:4,date:"12/18（五）",title:"櫛田／住吉神社 → LaLaport → 回家",meet:"回程班機：19:55",
+    day:4,date:"12/18（五）",title:"櫛田／住吉神社 → LaLaport → 回家",meet:"回程班機：19:55",image:"./assets/day4-lalaport.jpg",
     items:[
       {time:"08:00 起",icon:"☕",name:"Bread, Espresso & Hakata &&",detail:"早餐，原行程記載步行約5分鐘。",map:"パンとエスプレッソと博多っと"},
       {time:"09:00 起",icon:"⛩️",name:"櫛田神社散步",detail:"原行程記載從飯店步行約8分鐘。",map:"櫛田神社"},
@@ -122,7 +123,7 @@ function render(){
 }
 function homeView(){
   return `
-    <section class="hero">
+    <section class="hero hero-photo" style="background-image:linear-gradient(135deg,rgba(45,12,30,.78),rgba(56,38,122,.64)),url('./assets/hero-fukuoka.jpg')">
       <div class="eyebrow">🎄 ${trip.subtitle}</div>
       <h1>${trip.title}</h1>
       <p>${trip.dateRange}</p>
@@ -139,10 +140,10 @@ function homeView(){
     </div>
     <div class="section-head"><h2>四天行程</h2><button class="link-btn" data-jump="itinerary">查看全部</button></div>
     ${days.map(d=>`
-      <button class="card day-card" data-day-open="${d.day}" style="width:100%;text-align:left;border:1px solid var(--line)">
-        <span class="tag red">DAY ${d.day}</span><span class="tag">${d.date}</span>
-        <h3 style="margin:8px 0 5px">${d.title}</h3>
-        <div class="muted">${d.meet}</div>
+      <button class="card day-card image-day-card" data-day-open="${d.day}" style="width:100%;text-align:left;border:1px solid var(--line)">
+        <img src="${d.image}" alt="Day ${d.day}">
+        <div class="day-card-body"><span class="tag red">DAY ${d.day}</span><span class="tag">${d.date}</span>
+        <h3 style="margin:8px 0 5px">${d.title}</h3><div class="muted">${d.meet}</div></div>
       </button>`).join("")}
     <div class="notice">🎅 聖誕旅行重點：Day 1 博多聖誕市集、Day 2 太宰府與運河城燈光秀、Day 3 天神與福岡塔、Day 4 LaLaport 後返台。</div>`;
 }
@@ -150,7 +151,7 @@ function itineraryView(){
   const d=days.find(x=>x.day===state.day);
   return `
     <div class="day-tabs">${days.map(x=>`<button data-day="${x.day}" class="${x.day===state.day?'active':''}">Day ${x.day}・${x.date}</button>`).join("")}</div>
-    <div class="day-summary"><span class="tag red">DAY ${d.day}</span><h2 style="margin:8px 0">${d.title}</h2><div class="muted">${d.meet}</div></div>
+    <div class="day-summary day-summary-photo"><img src="${d.image}" alt="Day ${d.day}"><div><span class="tag red">DAY ${d.day}</span><h2 style="margin:8px 0">${d.title}</h2><div class="muted">${d.meet}</div></div></div>
     <div class="timeline">${d.items.map(eventHtml).join("")}</div>`;
 }
 function eventHtml(it){
@@ -196,6 +197,7 @@ function moreView(){
     ${moreItem("⚠️","搭機注意事項","手提行李、液體與拍攝規定","rules")}
     ${moreItem("💴","預算備忘","機票、住宿與現金","budget")}
     ${moreItem("🍜","福岡必吃","餐廳候選清單","food")}
+    ${moreItem("🖼️","旅行視覺","依行程生成的旅行海報與APP預覽","visuals")}
   </div>`;
 }
 function moreItem(icon,title,sub,type){
@@ -209,7 +211,7 @@ function openModal(type){
     <div class="card"><span class="tag red">去程</span><h3>${trip.flight.outbound.number}</h3><b>${trip.flight.outbound.route}</b><p>${trip.flight.outbound.time}</p><div class="muted">訂位代號：${trip.flight.outbound.code}</div></div>
     <div class="card"><span class="tag red">回程</span><h3>${trip.flight.return.number}</h3><b>${trip.flight.return.route}</b><p>${trip.flight.return.time}</p><div class="muted">訂位代號：${trip.flight.return.code}</div></div>`;
   if(type==="hotel") html=`<h2>🏨 住宿資訊</h2>
-    <div class="card"><h3>${trip.hotel.name}</h3><div class="muted">${trip.hotel.en}</div>
+    <div class="card"><img class="modal-cover" src="${trip.hotel.image}" alt="飯店"><h3>${trip.hotel.name}</h3><div class="muted">${trip.hotel.en}</div>
     <div class="detail-list">
       <div class="detail-row"><b>房型</b>${trip.hotel.room}</div>
       <div class="detail-row"><b>訂單編號</b>${trip.hotel.booking}</div>
@@ -229,6 +231,7 @@ function openModal(type){
     <div class="expense"><small>日幣現金</small><strong>¥70,000</strong></div>
     <div class="expense"><small>玉山帳戶</small><strong>¥90,000</strong></div>
   </div><div class="notice">旅平險、不便險、eSIM、機場接送金額在原行程表中尚未填寫。</div>`;
+  if(type==="visuals") html=`<h2>🖼️ 旅行視覺</h2><img class="poster-img" src="./assets/travel-poster.png" alt="福岡旅行海報"><div class="notice">此視覺依照你提供的 2026 福岡聖誕叮叮噹行程內容生成，已內建在 APP 中。</div>`;
   if(type==="food") html=`<h2>🍜 福岡必吃候選</h2><div class="detail-list">
     ${["拉麵競技場","那かむら","爐端燒（たみじ屋、三光橋）","釜揚 牧のうんど","天麩羅処ひらお","Shake Shack 漢堡","Shin Shin 拉麵","屋台","The Full Full Hakata","MUEN COFFEE"].map(x=>`<div class="detail-row">${x}</div>`).join("")}
   </div>`;
