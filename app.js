@@ -28,7 +28,7 @@ const trip = {
 
 const days = [
   {
-    day:1,date:"12/15（二）",title:"機場 → 飯店 → 博多聖誕市集",meet:"起床時間：09:00",image:"./day1-market.jpg?v=4",
+    day:1,date:"12/15（二）",title:"機場 → 飯店 → 博多聖誕市集",meet:"起床時間：09:00",image:"./day1-landmark.jpg?v=5",
     items:[
       {time:"出發前",icon:"🧳",name:"準備出發",detail:"往小港車程約 1 小時；可在車上完成線上報到。記得錢包、信用卡與行程表。"},
       {time:"15:25",icon:"✈️",name:"虎航 IT270",detail:"高雄小港機場 → 福岡機場，預計 18:55 抵達。",map:"高雄國際機場"},
@@ -39,7 +39,7 @@ const days = [
     ]
   },
   {
-    day:2,date:"12/16（三）",title:"太宰府天滿宮 → 竈門神社 → 博多運河城",meet:"集合時間：08:30～08:40",image:"./day2-shrine.jpg?v=4",
+    day:2,date:"12/16（三）",title:"太宰府天滿宮 → 竈門神社 → 博多運河城",meet:"集合時間：08:30～08:40",image:"./day2-landmark.jpg?v=5",
     items:[
       {time:"09:00–21:00",icon:"🍙",name:"Omusubi Yamaya 博多MING店",detail:"JR博多站內 MING 1樓；地址：博多区博多駅中央街1-1。",map:"Omusubi Yamaya 博多MING店"},
       {time:"09:42",icon:"🚆",name:"前往太宰府",detail:"博多站搭地鐵至天神站，步行到西鐵天神站；平日 09:42 有直達太宰府列車。出發前確認「旅人列車」運行日曆。",map:"西鉄福岡（天神）駅"},
@@ -51,7 +51,7 @@ const days = [
     ]
   },
   {
-    day:3,date:"12/17（四）",title:"紅葉八幡宮 → 天神商圈 → 福岡塔",meet:"集合時間：09:30",image:"./day3-tower.jpg?v=4",
+    day:3,date:"12/17（四）",title:"紅葉八幡宮 → 天神商圈 → 福岡塔",meet:"集合時間：09:30",image:"./day3-landmark.jpg?v=5",
     items:[
       {time:"10:00–19:00",icon:"🥐",name:"FULL FULL",detail:"早餐／麵包，原行程記載步行約3分鐘。",map:"The Full Full Hakata"},
       {time:"上午",icon:"⛩️",name:"紅葉八幡宮",detail:"從祇園方向前往，原行程：走路約10分 → 地鐵機場線 → 藤崎 → 步行約11分。",map:"紅葉八幡宮"},
@@ -62,7 +62,7 @@ const days = [
     ]
   },
   {
-    day:4,date:"12/18（五）",title:"櫛田／住吉神社 → LaLaport → 回家",meet:"回程班機：19:55",image:"./day4-lalaport.jpg?v=4",
+    day:4,date:"12/18（五）",title:"櫛田／住吉神社 → LaLaport → 回家",meet:"回程班機：19:55",image:"./day4-landmark.jpg?v=5",
     items:[
       {time:"08:00 起",icon:"☕",name:"Bread, Espresso & Hakata &&",detail:"早餐，原行程記載步行約5分鐘。",map:"パンとエスプレッソと博多っと"},
       {time:"09:00 起",icon:"⛩️",name:"櫛田神社散步",detail:"原行程記載從飯店步行約8分鐘。",map:"櫛田神社"},
@@ -92,6 +92,7 @@ let state = {
   page:"home",
   day:1,
   favTab:"全部",
+  openDays: new Set([1]),
   liked: new Set(JSON.parse(localStorage.getItem("fukuoka-liked") || "[]")),
   checks: JSON.parse(localStorage.getItem("fukuoka-checks") || "{}")
 };
@@ -148,11 +149,27 @@ function homeView(){
     <div class="notice">🎅 聖誕旅行重點：Day 1 博多聖誕市集、Day 2 太宰府與運河城燈光秀、Day 3 天神與福岡塔、Day 4 LaLaport 後返台。</div>`;
 }
 function itineraryView(){
-  const d=days.find(x=>x.day===state.day);
   return `
-    <div class="day-tabs">${days.map(x=>`<button data-day="${x.day}" class="${x.day===state.day?'active':''}">Day ${x.day}・${x.date}</button>`).join("")}</div>
-    <div class="day-summary day-summary-photo"><img src="${d.image}" alt="Day ${d.day}"><div><span class="tag red">DAY ${d.day}</span><h2 style="margin:8px 0">${d.title}</h2><div class="muted">${d.meet}</div></div></div>
-    <div class="timeline">${d.items.map(eventHtml).join("")}</div>`;
+    <div class="section-head"><h2>每日行程</h2><span class="muted">點擊日期展開／收合</span></div>
+    <div class="accordion-days">
+      ${days.map(d=>`
+        <section class="day-accordion ${state.openDays.has(d.day)?'open':''}">
+          <button class="day-accordion-head" data-toggle-day="${d.day}">
+            <div class="day-badge"><small>DAY</small><strong>${d.day}</strong></div>
+            <div class="day-head-copy">
+              <div class="day-date">${d.date}</div>
+              <div class="day-title">${d.title}</div>
+            </div>
+            <span class="chev">${state.openDays.has(d.day)?'⌃':'⌄'}</span>
+          </button>
+          ${state.openDays.has(d.day)?`
+            <div class="day-accordion-body">
+              <img class="landmark-hero" src="${d.image}" alt="福岡當地景點照片">
+              <div class="day-meet">${d.meet}</div>
+              <div class="timeline">${d.items.map(eventHtml).join("")}</div>
+            </div>`:""}
+        </section>`).join("")}
+    </div>`;
 }
 function eventHtml(it){
   return `<div class="event">
@@ -165,16 +182,19 @@ function eventHtml(it){
     </div>
   </div>`;
 }
+const locationMapSlugs = {"高雄國際機場": "kaohsiung-airport", "福岡空港": "fukuoka-airport", "櫛田神社前駅": "hotel-croom", "Nishitetsu Hotel Croom Hakata Gion Kushida Shrine": "hotel-croom", "JR博多駅前広場": "hakata-christmas-market", "Omusubi Yamaya 博多MING店": "omusubi-yamaya", "西鉄福岡（天神）駅": "nishitetsu-tenjin", "太宰府天満宮": "dazaifu-tenmangu", "竈門神社": "kamado-shrine", "九州国立博物館": "kyushu-national-museum", "キャナルシティ博多": "canal-city", "紅葉八幡宮": "momiji-hachimangu", "天神地下街": "tenjin-underground", "ちいかわらんど 福岡パルコ店": "chiikawa-land", "ミーナ天神": "mina-tenjin", "福岡タワー": "fukuoka-tower", "パンとエスプレッソと博多っと": "bread-espresso", "櫛田神社": "kushida-shrine", "ららぽーと福岡": "lalaport-fukuoka"};
+function locationImage(q){ return "./"+(locationMapSlugs[q]||"fukuoka-airport")+".svg?v=5"; }
+
 function mapView(){
   const points=days.flatMap(d=>d.items.filter(x=>x.map).map(x=>({...x,day:d.day,date:d.date})));
   return `<div class="seg-tabs">
       <button class="active" data-map-filter="all">全部</button>
       ${days.map(d=>`<button data-map-filter="${d.day}">Day ${d.day}</button>`).join("")}
     </div>
-    <div class="map-list">${points.map(p=>`<div class="pin" data-map-day="${p.day}">
-      <strong>${p.icon} ${p.name}</strong>
-      <div class="muted">Day ${p.day}・${p.date}・${p.time}</div>
-      <a href="${mapUrl(p.map)}" target="_blank" rel="noopener">開啟 Google Maps →</a>
+    <div class="map-list">${points.map(p=>`<div class="pin location-card" data-map-day="${p.day}">
+      <div class="location-meta"><strong>${p.icon} ${p.name}</strong><div class="muted">Day ${p.day}・${p.date}・${p.time}</div></div>
+      <img class="location-map-image" src="${locationImage(p.map)}" alt="${p.name} 地理位置圖">
+      <a class="btn btn-soft location-open" href="${mapUrl(p.map)}" target="_blank" rel="noopener">📍 開啟 Google Maps</a>
     </div>`).join("")}</div>`;
 }
 function favoritesView(){
@@ -248,6 +268,11 @@ function bindModal(){
 function bindDynamic(){
   $$("[data-jump]").forEach(x=>x.onclick=()=>setPage(x.dataset.jump));
   $$("[data-day]").forEach(x=>x.onclick=()=>{state.day=Number(x.dataset.day);render();});
+  $$("[data-toggle-day]").forEach(x=>x.onclick=()=>{
+    const d=Number(x.dataset.toggleDay);
+    state.openDays.has(d)?state.openDays.delete(d):state.openDays.add(d);
+    render();
+  });
   $$("[data-day-open]").forEach(x=>x.onclick=()=>{state.day=Number(x.dataset.dayOpen);setPage("itinerary");});
   $$("[data-open]").forEach(x=>x.onclick=()=>openModal(x.dataset.open));
   $$("[data-favtab]").forEach(x=>x.onclick=()=>{state.favTab=x.dataset.favtab;render();});
