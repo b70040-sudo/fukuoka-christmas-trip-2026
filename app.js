@@ -20,7 +20,7 @@ const trip = {
     booking:"5694420651",
     room:"雙床房－附榻榻米區",
     checkin:"15:00 起",
-    checkout:"12/18 11:00",
+    checkout:"11:00",
     note:"大廳在二樓；櫛田神社前站步行約2分鐘，5號出口有扶梯。",
     image:"./hotel.jpg?v=4"
   }
@@ -182,6 +182,13 @@ function eventHtml(it){
     </div>
   </div>`;
 }
+
+const subwayLines=[
+{name:"機場線",c:"blue",s:["福岡機場","東比恵","博多","祇園","中洲川端","天神","赤坂","大濠公園","唐人町","西新","藤崎","室見","姪浜"]},
+{name:"箱崎線",c:"orange",s:["中洲川端","呉服町","千代県庁口","馬出九大病院前","箱崎宮前","箱崎九大前","貝塚"]},
+{name:"七隈線",c:"green",s:["博多","櫛田神社前","天神南","渡辺通","薬院","薬院大通","桜坂","六本松","別府","茶山","金山","七隈","福大前","梅林","野芥","賀茂","次郎丸","橋本"]}];
+function subwayMapHtml(){return `<section class="subway-section"><div class="section-head"><h2>🚇 福岡市地鐵路線圖</h2><span class="muted">本次行程常用路線</span></div><div class="subway-note">機場線・箱崎線・七隈線｜實際班次與轉乘以當日車站資訊為準。</div>${subwayLines.map(l=>`<div class="subway-card ${l.c}"><h3><i></i>${l.name}</h3><div class="station-scroll">${l.s.map(s=>`<div class="station"><b></b><span>${s}</span></div>`).join("")}</div></div>`).join("")}<div class="route-tips"><div>✈️ 福岡機場 → 博多：機場線直達</div><div>🏨 博多 → 櫛田神社前：七隈線</div><div>🗼 天神 → 唐人町：機場線</div></div></section>`;}
+
 const locationMapSlugs = {"高雄國際機場": "kaohsiung-airport", "福岡空港": "fukuoka-airport", "櫛田神社前駅": "hotel-croom", "Nishitetsu Hotel Croom Hakata Gion Kushida Shrine": "hotel-croom", "JR博多駅前広場": "hakata-christmas-market", "Omusubi Yamaya 博多MING店": "omusubi-yamaya", "西鉄福岡（天神）駅": "nishitetsu-tenjin", "太宰府天満宮": "dazaifu-tenmangu", "竈門神社": "kamado-shrine", "九州国立博物館": "kyushu-national-museum", "キャナルシティ博多": "canal-city", "紅葉八幡宮": "momiji-hachimangu", "天神地下街": "tenjin-underground", "ちいかわらんど 福岡パルコ店": "chiikawa-land", "ミーナ天神": "mina-tenjin", "福岡タワー": "fukuoka-tower", "パンとエスプレッソと博多っと": "bread-espresso", "櫛田神社": "kushida-shrine", "ららぽーと福岡": "lalaport-fukuoka"};
 function locationImage(q){ return "./"+(locationMapSlugs[q]||"fukuoka-airport")+".svg?v=5"; }
 
@@ -195,7 +202,7 @@ function mapView(){
       <div class="location-meta"><strong>${p.icon} ${p.name}</strong><div class="muted">Day ${p.day}・${p.date}・${p.time}</div></div>
       <img class="location-map-image" src="${locationImage(p.map)}" alt="${p.name} 地理位置圖">
       <a class="btn btn-soft location-open" href="${mapUrl(p.map)}" target="_blank" rel="noopener">📍 開啟 Google Maps</a>
-    </div>`).join("")}</div>`;
+    </div>`).join("")}</div>${subwayMapHtml()}`;
 }
 function favoritesView(){
   const tabs=["全部","想吃","想買"];
