@@ -20,7 +20,7 @@ const trip = {
     booking:"5694420651",
     room:"雙床房－附榻榻米區",
     checkin:"15:00 起",
-    checkout:"12/18 10:50",
+    checkout:"12/18 11:00",
     note:"大廳在二樓；櫛田神社前站步行約2分鐘，5號出口有扶梯。",
     image:"./hotel.jpg?v=4"
   }
