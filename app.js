@@ -39,7 +39,18 @@ const days = [
     ]
   },
   {
-    day:2,date:"12/16（三）",title:"太宰府天滿宮 → 竈門神社 → 博多運河城",meet:"集合時間：08:30～08:40",image:"./day2-landmark.jpg?v=5",
+    day:2,date:"12/16（三）",title:"紅葉八幡宮 → 天神商圈 → 福岡塔",meet:"集合時間：09:30",image:"./day3-landmark.jpg?v=5",
+    items:[
+      {time:"10:00–19:00",icon:"🥐",name:"FULL FULL",detail:"早餐／麵包，原行程記載步行約3分鐘。",map:"The Full Full Hakata"},
+      {time:"上午",icon:"⛩️",name:"紅葉八幡宮",detail:"從祇園方向前往，原行程：走路約10分 → 地鐵機場線 → 藤崎 → 步行約11分。",map:"紅葉八幡宮"},
+      {time:"中午",icon:"🛍️",name:"天神地下街",detail:"逛天神商圈。",map:"天神地下街"},
+      {time:"逛街",icon:"🐹",name:"福岡 CHIIKAWA LAND",detail:"福岡 PARCO 本館8樓；福岡市中央区天神2丁目11-1。",map:"ちいかわらんど 福岡パルコ店"},
+      {time:"逛街",icon:"🎁",name:"Mina 天神",detail:"7樓：扭蛋、一番賞。",map:"ミーナ天神"},
+      {time:"09:30–22:00",icon:"🗼",name:"福岡塔",detail:"最終入館 21:30。附近有 BOSS E・ZO FUKUOKA；可安排暖暮拉麵、天婦羅たかお、九州迴轉壽司等。",map:"福岡タワー"}
+    ]
+  },
+  {
+    day:3,date:"12/17（四）",title:"太宰府天滿宮 → 竈門神社 → 博多運河城",meet:"集合時間：08:30～08:40",image:"./day2-landmark.jpg?v=5",
     items:[
       {time:"09:00–21:00",icon:"🍙",name:"Omusubi Yamaya 博多MING店",detail:"JR博多站內 MING 1樓；地址：博多区博多駅中央街1-1。",map:"Omusubi Yamaya 博多MING店"},
       {time:"09:42",icon:"🚆",name:"前往太宰府",detail:"博多站搭地鐵至天神站，步行到西鐵天神站；平日 09:42 有直達太宰府列車。出發前確認「旅人列車」運行日曆。",map:"西鉄福岡（天神）駅"},
@@ -48,17 +59,6 @@ const days = [
       {time:"備用",icon:"🏛️",name:"九州國立博物館",detail:"09:30～17:00，可作為備用行程，外觀拍照或入內參觀。",map:"九州国立博物館"},
       {time:"下午～晚上",icon:"🛍️",name:"博多運河城",detail:"逛街、B1官方一番賞、4F二手一番賞。",map:"キャナルシティ博多"},
       {time:"18:00 起",icon:"✨",name:"聖誕水舞燈光秀",detail:"每日 18:00、19:00、20:00、21:00。",map:"キャナルシティ博多"}
-    ]
-  },
-  {
-    day:3,date:"12/17（四）",title:"紅葉八幡宮 → 天神商圈 → 福岡塔",meet:"集合時間：09:30",image:"./day3-landmark.jpg?v=5",
-    items:[
-      {time:"10:00–19:00",icon:"🥐",name:"FULL FULL",detail:"早餐／麵包，原行程記載步行約3分鐘。",map:"The Full Full Hakata"},
-      {time:"上午",icon:"⛩️",name:"紅葉八幡宮",detail:"從祇園方向前往，原行程：走路約10分 → 地鐵機場線 → 藤崎 → 步行約11分。",map:"紅葉八幡宮"},
-      {time:"中午",icon:"🛍️",name:"天神地下街",detail:"逛天神商圈。",map:"天神地下街"},
-      {time:"逛街",icon:"🐹",name:"福岡 CHIIKAWA LAND",detail:"福岡 PARCO 本館8樓；福岡市中央区天神2丁目11-1。",map:"ちいかわらんど 福岡パルコ店"},
-      {time:"逛街",icon:"🎁",name:"Mina 天神",detail:"7樓：扭蛋、一番賞。",map:"ミーナ天神"},
-      {time:"09:30–22:00",icon:"🗼",name:"福岡塔",detail:"最終入館 21:30。附近有 BOSS E・ZO FUKUOKA；可安排暖暮拉麵、天婦羅たかお、九州迴轉壽司等。",map:"福岡タワー"}
     ]
   },
   {
